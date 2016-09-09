@@ -67,4 +67,11 @@ public class GameBoard {
         return numBoxes;
     }
 
+    public int[] getBoxPosition(int i) {
+        return new int[] { 
+            boxRows[i],
+            boxCols[i]
+        };
+    }
+
 }
