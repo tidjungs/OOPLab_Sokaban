@@ -63,4 +63,8 @@ public class GameBoard {
         return playerCol;
     }
 
+    public int getNumBoxes() {
+        return numBoxes;
+    }
+
 }

@@ -31,6 +31,11 @@ public class GameBoardTest {
         assertEquals(1, smallBoard.getPlayerRow());
         assertEquals(4, smallBoard.getPlayerCol());
     }
+
+    @Test
+    public void testLoadBoardNumBoxes() {
+        assertEquals(2, smallBoard.getNumBoxes());
+    }
  
 	 
 }
