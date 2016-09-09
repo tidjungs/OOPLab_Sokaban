@@ -93,5 +93,19 @@ public class GameBoardTest {
                 " #####\n",
                 smallBoard.toString());
     }
+    
+
+    @Test
+    public void testToStringWithNewPlayerAndBoxesPositions() {
+    	smallBoard.setPlayerPosition(2, 2);
+    	smallBoard.setBoxPosition(0, 2, 1);
+        assertEquals(		
+                " #####\n"+
+                "#*...#\n"+
+                "#OA.O#\n"+
+                "##..*#\n"+
+                " #####\n",
+                smallBoard.toString());
+    }
 	 
 }
