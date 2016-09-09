@@ -12,6 +12,10 @@ public class GameBoard {
     private int[] boxRows;
     private int[] boxCols;
 
+    private int numExit;
+    private int[] exitRows;
+    private int[] exitCols;
+
 	public GameBoard(String[] map) {
         loadBoard(map);
 	}
@@ -20,8 +24,12 @@ public class GameBoard {
 		height = map.length;
         width = map[0].length();
         numBoxes = 0;
+        numExit = 0;
         boxRows = new int[height*width];
         boxCols = new int[height*width];
+
+        exitRows = new int[height*width];
+        exitCols = new int[height*width];
 		
         baseBoard = new String[height];
         for(int r=0; r<height; r++) {
@@ -39,6 +47,10 @@ public class GameBoard {
                          boxCols[numBoxes] = c;
                          numBoxes++;
                          break;
+                    case '*':
+                        exitRows[numExit] = r;
+                        exitCols[numExit] = c;
+                        break;
                     default:
                     	sch = mch;
         		}
@@ -86,6 +98,23 @@ public class GameBoard {
 
     public boolean hasPlayerAt(int r, int c) {
         return (playerRow == r) && (playerCol == c);
+    }
+
+    public boolean hasBoxAt(int r, int c) {
+        return false;
+    }
+ 
+    public boolean hasExitAt(int r, int c) {
+        for(int i=0; i<numExit; i++) {
+            if(exitRows[i] == r && exitCols[i] == c) {
+                return true;
+            }
+        }
+        return false;
+    }
+ 
+    public String toString() {
+        return "";
     }
 
 }
