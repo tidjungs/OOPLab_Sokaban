@@ -64,10 +64,21 @@ public class GameBoardTest {
         assertFalse(smallBoard.hasPlayerAt(100, 1));
     }
 
+    @Test
+    public void testExitPositionCheck() {
+        assertFalse(smallBoard.hasExitAt(0, 0));
+    }
+
     public void testExitPositionCheckOutsideBoard() {
         assertFalse(smallBoard.hasExitAt(-10, -1));
         assertFalse(smallBoard.hasExitAt(100, 1));
         assertFalse(smallBoard.hasExitAt(1, 500));
+    }
+
+    public void testBoxesPositionCheckOutsideBoard() {
+        assertFalse(smallBoard.hasBoxAt(-10, -1));
+        assertFalse(smallBoard.hasBoxAt(100, 1));
+        assertFalse(smallBoard.hasBoxAt(1, 500));
     }
 
 	 

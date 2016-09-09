@@ -101,7 +101,12 @@ public class GameBoard {
     }
 
     public boolean hasBoxAt(int r, int c) {
-        return false;
+        for(int i=0; i<numBoxes; i++) {
+            if(boxRows[i] == r && boxCols[i] == c) {
+                return true;
+            }
+        }
+        return false;    
     }
  
     public boolean hasExitAt(int r, int c) {
