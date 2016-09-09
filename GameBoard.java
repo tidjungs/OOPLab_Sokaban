@@ -74,4 +74,8 @@ public class GameBoard {
         };
     }
 
+    public boolean hasPlayerAt(int r, int c) {
+        return (playerRow == r) && (playerCol == c);
+    }
+
 }

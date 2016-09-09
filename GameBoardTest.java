@@ -41,7 +41,13 @@ public class GameBoardTest {
     public void testLoadBoardBoxPositions() {
         assertArrayEquals(new int[] {1, 2}, smallBoard.getBoxPosition(0));
         assertArrayEquals(new int[] {2, 4}, smallBoard.getBoxPosition(1));
-    }  
+    }
+
+    @Test
+    public void testPlayerPositionCheck() {
+        assertFalse(smallBoard.hasPlayerAt(0,0));
+        assertTrue(smallBoard.hasPlayerAt(1,4));
+    }
  
 	 
 }
