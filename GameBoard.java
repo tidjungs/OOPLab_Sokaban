@@ -63,6 +63,11 @@ public class GameBoard {
         return playerCol;
     }
 
+    public void setPlayerPosition(int r, int c) {
+        playerRow = r;
+        playerCol = c;
+    }
+
     public int getNumBoxes() {
         return numBoxes;
     }
@@ -72,6 +77,11 @@ public class GameBoard {
             boxRows[i],
             boxCols[i]
         };
+    }
+
+    public void setBoxPosition(int i, int r, int c) {
+        boxRows[i] = r;
+        boxCols[i] = c;
     }
 
     public boolean hasPlayerAt(int r, int c) {
