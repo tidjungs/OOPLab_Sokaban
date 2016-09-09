@@ -50,6 +50,7 @@ public class GameBoard {
                     case '*':
                         exitRows[numExit] = r;
                         exitCols[numExit] = c;
+                        numExit++;
                         break;
                     default:
                     	sch = mch;
@@ -119,7 +120,22 @@ public class GameBoard {
     }
  
     public String toString() {
-        return "";
+        String stringBoard = "";
+        for(int r=0; r<height; r++) {
+            for(int c=0; c<width; c++) {
+                 if(hasPlayerAt(r, c)) {
+                     stringBoard += "A";
+                 } else if (hasExitAt(r, c)) {
+                     stringBoard += "*";
+                 } else if (hasBoxAt(r, c)) {
+                     stringBoard += "O";
+                 } else {
+                     stringBoard += baseBoard[r].charAt(c);
+                 }
+            }
+            stringBoard += "\n";
+        }
+        return stringBoard;
     }
 
 }

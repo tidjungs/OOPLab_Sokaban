@@ -69,17 +69,29 @@ public class GameBoardTest {
         assertFalse(smallBoard.hasExitAt(0, 0));
     }
 
+    @Test
     public void testExitPositionCheckOutsideBoard() {
         assertFalse(smallBoard.hasExitAt(-10, -1));
         assertFalse(smallBoard.hasExitAt(100, 1));
         assertFalse(smallBoard.hasExitAt(1, 500));
     }
 
+    @Test
     public void testBoxesPositionCheckOutsideBoard() {
         assertFalse(smallBoard.hasBoxAt(-10, -1));
         assertFalse(smallBoard.hasBoxAt(100, 1));
         assertFalse(smallBoard.hasBoxAt(1, 500));
     }
 
+    @Test
+    public void testToStringWithInitialPositions() {
+        assertEquals(		
+                " #####\n"+
+                "#*O.A#\n"+
+                "#...O#\n"+
+                "##..*#\n"+
+                " #####\n",
+                smallBoard.toString());
+    }
 	 
 }
