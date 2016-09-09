@@ -45,7 +45,14 @@ public class GameBoard {
                 baseBoard[r] += sch;
         	}
         }
-        
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	 
+	public int getWidth() {
+	    return width;
 	}
 
 }

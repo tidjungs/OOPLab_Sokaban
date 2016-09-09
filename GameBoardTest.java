@@ -13,10 +13,17 @@ public class GameBoardTest {
 		    "##..*#",
 		    " #####"
 	};
-	 private GameBoard smallBoard;
+	private GameBoard smallBoard;
 	 
-	 @Before
-	 public void setUp() {
-		 smallBoard = new GameBoard(smallBoardMap);
-	 }
+	@Before
+	public void setUp() {
+		smallBoard = new GameBoard(smallBoardMap);
+	}
+	 
+	@Test
+    public void testLoadBoardProperties() {
+        assertEquals(5, smallBoard.getHeight());
+        assertEquals(6, smallBoard.getWidth());
+    }
+	 
 }
