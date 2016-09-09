@@ -55,4 +55,12 @@ public class GameBoard {
 	    return width;
 	}
 
+    public int getPlayerRow() {
+        return playerRow;
+    }
+ 
+    public int getPlayerCol() {
+        return playerCol;
+    }
+
 }

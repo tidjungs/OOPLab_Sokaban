@@ -25,5 +25,12 @@ public class GameBoardTest {
         assertEquals(5, smallBoard.getHeight());
         assertEquals(6, smallBoard.getWidth());
     }
+
+    @Test
+    public void testLoadBoardPlayerPosition() {
+        assertEquals(1, smallBoard.getPlayerRow());
+        assertEquals(4, smallBoard.getPlayerCol());
+    }
+ 
 	 
 }
