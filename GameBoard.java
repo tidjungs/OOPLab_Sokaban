@@ -16,6 +16,10 @@ public class GameBoard {
     private int[] exitRows;
     private int[] exitCols;
 
+    public enum Direction {
+        UP, RIGHT, DOWN, LEFT
+    }
+    
 	public GameBoard(String[] map) {
         loadBoard(map);
 	}
@@ -137,5 +141,39 @@ public class GameBoard {
         }
         return stringBoard;
     }
-
+    
+    boolean canPlayerMove(Direction dir) {
+    	int r = playerRow + getRowDiff(dir);
+    	int c = playerCol + getColDiff(dir);
+    	return !hasBoxAt(r, c) && baseBoard[r].charAt(c) == '.';
+    }
+    
+    void movePlayer(Direction dir) {
+    	if(canPlayerMove(dir)) {
+    		playerRow += getRowDiff(dir);
+    		playerCol += getColDiff(dir);
+    	}
+    }
+    
+    public int getColDiff(Direction dir) {
+        switch(dir) {
+        case LEFT:
+            return -1;
+        case RIGHT:
+            return 1;
+        default:
+            return 0;
+        }
+    }
+ 
+    public int getRowDiff(Direction dir) {
+        switch(dir) {
+        case UP:
+            return -1;
+        case DOWN:
+            return 1;
+        default:
+            return 0;
+        }
+    }
 }
