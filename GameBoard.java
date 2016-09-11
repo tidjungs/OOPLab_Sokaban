@@ -1,4 +1,4 @@
-package sokoban;
+// package sokoban;
 
 public class GameBoard {
 	private int height;
@@ -142,13 +142,13 @@ public class GameBoard {
         return stringBoard;
     }
     
-    boolean canPlayerMove(Direction dir) {
+    public boolean canPlayerMove(Direction dir) {    	
     	int r = playerRow + getRowDiff(dir);
     	int c = playerCol + getColDiff(dir);
     	return !hasBoxAt(r, c) && baseBoard[r].charAt(c) == '.';
     }
     
-    void movePlayer(Direction dir) {
+    public void movePlayer(Direction dir) {
     	if(canPlayerMove(dir)) {
     		playerRow += getRowDiff(dir);
     		playerCol += getColDiff(dir);

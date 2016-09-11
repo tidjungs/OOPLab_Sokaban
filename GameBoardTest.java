@@ -1,4 +1,4 @@
-package sokoban;
+// package sokoban;
 
 import static org.junit.Assert.*;
 

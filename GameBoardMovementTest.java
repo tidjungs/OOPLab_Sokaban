@@ -1,4 +1,4 @@
-package sokoban;
+// package sokoban;
 
 import static org.junit.Assert.*;
 
@@ -18,7 +18,7 @@ public class GameBoardMovementTest {
  
     @Before
     public void setUp() {
-        smallBoard = new GameBoard(smallBoardMap);
+         smallBoard = new GameBoard(smallBoardMap);
     }
     
     @Test
