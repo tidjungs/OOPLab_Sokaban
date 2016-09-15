@@ -49,9 +49,11 @@ public class Main {
                 dir = GameBoard.Direction.RIGHT;
                 break;
             }
+            if(board.canBoxMove(dir)) {
+            	board.moveBox(dir);
+            }
             if(board.canPlayerMove(dir)) {
                 board.movePlayer(dir);
-                
             }
             round++;
         }

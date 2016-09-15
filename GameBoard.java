@@ -156,35 +156,36 @@ public class GameBoard {
         }
     }
 
-    public boolean canPlayerMove(Direction dir) {    	
-    	return canPlayerStepOn(getBoardNextItem(playerRow, playerCol, dir));
-    }
+  
     
-    public void movePlayer(Direction dir) {
-    	if (canPlayerMove(dir)) {
-    		playerRow += getRowDiff(dir);
-    		playerCol += getColDiff(dir);
-    	}
-        if (checkMoveBox(playerRow, playerCol, dir)) {
-            playerMoveBox(dir);
-        }
+    public void moveBox(Direction dir) {
+        int r = playerRow + getRowDiff(dir);
+        int c = playerCol + getColDiff(dir);
+        for (int i=0; i<numBoxes; i++) {
+            int[] box = getBoxPosition(i);
+            if (box[0] == r && box[1] == c) {
+                setBoxPosition(i, box[0] + getRowDiff(dir), box[1] + getColDiff(dir));
+            } 
+        }        
     }
 
-    public boolean checkMoveBox(int r, int c, Direction dir) {
+    public void movePlayer(Direction dir) {
+    	playerRow += getRowDiff(dir);
+    	playerCol += getColDiff(dir);
+    }
+
+    public boolean canBoxMove(Direction dir) {
+        int r = playerRow + getRowDiff(dir);
+        int c = playerCol + getColDiff(dir);
         return hasBoxAt(r, c) && getBoardNextItem(r, c, dir) != '#';
     }
 
-    public void playerMoveBox (Direction dir) {
-        for (int i=0; i<numBoxes; i++) {
-                int[] box = getBoxPosition(i);
-                if (box[0] == playerRow && box[1] == playerCol) {
-                    setBoxPosition(i, playerRow + getRowDiff(dir), playerCol + getColDiff(dir));
-                } 
-        }
+    public boolean canPlayerMove(Direction dir) {
+        return canPlayerStepOn(getBoardNextItem(playerRow, playerCol, dir));
     }
 
     public boolean canPlayerStepOn(char item) {
-        return (item == '.') || (item == '*') || (item == ' ') || (item == 'O');
+        return (item == '.') || (item == '*') || (item == ' ');
     }
     
     public int getColDiff(Direction dir) {
