@@ -1,0 +1,20 @@
+{
+  "name": "ooplab_sokoban",
+  "version": "1.0.0",
+  "description": "Java TDD Tutorial in Object-Oriented Programming Laboratory",
+  "main": "index.js",
+  "scripts": {
+    "test": "java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore GameBoardTest",
+    "test-move": "java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore GameBoardMovementTest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidjungs/OOPLab_Sokaban.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tidjungs/OOPLab_Sokaban/issues"
+  },
+  "homepage": "https://github.com/tidjungs/OOPLab_Sokaban#readme"
+}

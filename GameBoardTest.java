@@ -1,5 +1,3 @@
-// package sokoban;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -94,7 +92,6 @@ public class GameBoardTest {
                 smallBoard.toString());
     }
     
-
     @Test
     public void testToStringWithNewPlayerAndBoxesPositions() {
     	smallBoard.setPlayerPosition(2, 2);
@@ -106,6 +103,13 @@ public class GameBoardTest {
                 "##..*#\n"+
                 " #####\n",
                 smallBoard.toString());
+    }
+
+    @Test
+    public void testGetBoardNextItem() {
+        assertEquals('O', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.RIGHT));
+        assertEquals('#', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.LEFT));
+        assertEquals('.', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.DOWN));
     }
 	 
 }

@@ -1,5 +1,3 @@
-// package sokoban;
-
 public class GameBoard {
 	private int height;
 	private int width;
@@ -141,11 +139,23 @@ public class GameBoard {
         }
         return stringBoard;
     }
-    
+
+    public char getBoardNextItem(int r, int c, Direction dir) {
+
+        r += getRowDiff(dir);
+        c += getColDiff(dir);
+
+        if (hasBoxAt(r, c)) {
+            return 'O';
+        } else if (hasExitAt(r, c)) {
+            return '*';
+        } else {
+            return baseBoard[r].charAt(c);
+        }
+    }
+
     public boolean canPlayerMove(Direction dir) {    	
-    	int r = playerRow + getRowDiff(dir);
-    	int c = playerCol + getColDiff(dir);
-    	return !hasBoxAt(r, c) && baseBoard[r].charAt(c) == '.';
+    	return getBoardNextItem(playerRow, playerCol, dir) == '.';
     }
     
     public void movePlayer(Direction dir) {
