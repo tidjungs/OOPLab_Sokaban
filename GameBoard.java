@@ -127,10 +127,10 @@ public class GameBoard {
             for(int c=0; c<width; c++) {
                  if(hasPlayerAt(r, c)) {
                      stringBoard += "A";
-                 } else if (hasExitAt(r, c)) {
-                     stringBoard += "*";
                  } else if (hasBoxAt(r, c)) {
                      stringBoard += "O";
+                 } else if (hasExitAt(r, c)) {
+                     stringBoard += "*";
                  } else {
                      stringBoard += baseBoard[r].charAt(c);
                  }
@@ -161,14 +161,23 @@ public class GameBoard {
     }
     
     public void movePlayer(Direction dir) {
-    	if(canPlayerMove(dir)) {
+    	if (canPlayerMove(dir)) {
     		playerRow += getRowDiff(dir);
     		playerCol += getColDiff(dir);
     	}
+        if (hasBoxAt(playerRow, playerCol) && getBoardNextItem(playerRow, playerCol, dir) != '#') {
+            for (int i=0; i<numBoxes; i++) {
+                int[] box = getBoxPosition(i);
+                if (box[0] == playerRow && box[1] == playerCol) {
+                    setBoxPosition(i, playerRow + getRowDiff(dir), playerCol + getColDiff(dir));
+                    System.out.println(getBoxPosition(i)[0] + " " + getBoxPosition(i)[1]);
+                } 
+            }
+        }
     }
 
     public boolean canPlayerStepOn(char item) {
-        return (item == '.') || (item == '*') || (item == ' ');
+        return (item == '.') || (item == '*') || (item == ' ') || (item == 'O');
     }
     
     public int getColDiff(Direction dir) {

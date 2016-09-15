@@ -51,6 +51,7 @@ public class Main {
             }
             if(board.canPlayerMove(dir)) {
                 board.movePlayer(dir);
+                
             }
             round++;
         }
