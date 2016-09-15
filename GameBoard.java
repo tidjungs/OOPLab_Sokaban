@@ -165,14 +165,21 @@ public class GameBoard {
     		playerRow += getRowDiff(dir);
     		playerCol += getColDiff(dir);
     	}
-        if (hasBoxAt(playerRow, playerCol) && getBoardNextItem(playerRow, playerCol, dir) != '#') {
-            for (int i=0; i<numBoxes; i++) {
+        if (checkMoveBox(playerRow, playerCol, dir)) {
+            playerMoveBox(dir);
+        }
+    }
+
+    public boolean checkMoveBox(int r, int c, Direction dir) {
+        return hasBoxAt(r, c) && getBoardNextItem(r, c, dir) != '#';
+    }
+
+    public void playerMoveBox (Direction dir) {
+        for (int i=0; i<numBoxes; i++) {
                 int[] box = getBoxPosition(i);
                 if (box[0] == playerRow && box[1] == playerCol) {
                     setBoxPosition(i, playerRow + getRowDiff(dir), playerCol + getColDiff(dir));
-                    System.out.println(getBoxPosition(i)[0] + " " + getBoxPosition(i)[1]);
                 } 
-            }
         }
     }
 

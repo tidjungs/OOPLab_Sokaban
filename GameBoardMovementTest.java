@@ -28,4 +28,11 @@ public class GameBoardMovementTest {
         assertEquals(2, smallBoard.getPlayerRow());
         assertEquals(3, smallBoard.getPlayerCol());
     }
+
+    @Test 
+    public void playerMoveBoxSuccess() {
+        smallBoard.movePlayer(GameBoard.Direction.LEFT);
+        smallBoard.movePlayer(GameBoard.Direction.LEFT);
+        assertTrue(smallBoard.hasBoxAt(1, 1));
+    }
 }
