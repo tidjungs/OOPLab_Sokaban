@@ -209,4 +209,23 @@ public class GameBoard {
             return 0;
         }
     }
+
+    public boolean isSolved() {
+        int[] exitUse = new int[numExit];    
+        for (int i=0; i<numBoxes; i++) {
+            for (int j=0; j<numExit; j++) {
+                if (boxRows[i] == exitRows[j] && boxCols[i] == exitCols[j]) {
+                    exitUse[j] = 1;
+                }
+            }
+        }
+
+        for (int i=0; i<exitUse.length; i++) {
+            if (exitUse[i] == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

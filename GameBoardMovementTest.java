@@ -32,6 +32,7 @@ public class GameBoardMovementTest {
     @Test 
     public void playerMoveBoxSuccess() {
         smallBoard.movePlayer(GameBoard.Direction.LEFT);
+        smallBoard.moveBox(GameBoard.Direction.LEFT);
         smallBoard.movePlayer(GameBoard.Direction.LEFT);
         assertTrue(smallBoard.hasBoxAt(1, 1));
     }

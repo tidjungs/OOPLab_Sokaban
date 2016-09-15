@@ -18,7 +18,12 @@ public class Main {
             System.out.println("Round: " + round);
             System.out.println(board);
             System.out.println();
- 
+ 			
+ 			if(board.isSolved()) {
+                System.out.println("You won.");
+                break;
+            }
+            
             System.out.print("Your choice (awsd - movement, q - quit):");
  
             String choiceStr = scanner.nextLine();
@@ -52,9 +57,11 @@ public class Main {
             if(board.canBoxMove(dir)) {
             	board.moveBox(dir);
             }
+            
             if(board.canPlayerMove(dir)) {
                 board.movePlayer(dir);
             }
+
             round++;
         }
     }
