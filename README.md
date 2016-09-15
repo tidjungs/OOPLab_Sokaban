@@ -19,12 +19,13 @@ javac -cp .:junit-4.12.jar GameboardTest.java
 java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore GameBoardTest
 ```
 Another way to run Test
+- test set board
 ```
-//test set board
 javac -cp .:junit-4.12.jar GameboardTest.java
 npm run test
-
-//test moving
+```
+- test moving
+```
 javac -cp .:junit-4.12.jar GameboardMovementTest.java
 npm run test-move
 ```
