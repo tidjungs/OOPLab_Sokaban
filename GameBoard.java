@@ -149,13 +149,15 @@ public class GameBoard {
             return 'O';
         } else if (hasExitAt(r, c)) {
             return '*';
+        } else if (hasPlayerAt(r ,c)) {
+            return 'A';
         } else {
             return baseBoard[r].charAt(c);
         }
     }
 
     public boolean canPlayerMove(Direction dir) {    	
-    	return getBoardNextItem(playerRow, playerCol, dir) == '.';
+    	return canPlayerStepOn(getBoardNextItem(playerRow, playerCol, dir));
     }
     
     public void movePlayer(Direction dir) {
@@ -163,6 +165,10 @@ public class GameBoard {
     		playerRow += getRowDiff(dir);
     		playerCol += getColDiff(dir);
     	}
+    }
+
+    public boolean canPlayerStepOn(char item) {
+        return (item == '.') || (item == '*') || (item == ' ');
     }
     
     public int getColDiff(Direction dir) {

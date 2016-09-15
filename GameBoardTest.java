@@ -110,6 +110,7 @@ public class GameBoardTest {
         assertEquals('O', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.RIGHT));
         assertEquals('#', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.LEFT));
         assertEquals('.', smallBoard.getBoardNextItem(1, 1, GameBoard.Direction.DOWN));
+        assertEquals('A', smallBoard.getBoardNextItem(1, 3, GameBoard.Direction.RIGHT));
     }
 	 
 }

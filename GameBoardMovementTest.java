@@ -22,6 +22,8 @@ public class GameBoardMovementTest {
     @Test
     public void playerMoveSuccess() {
     	smallBoard.movePlayer(GameBoard.Direction.LEFT);
+        assertEquals(1, smallBoard.getPlayerRow());
+        assertEquals(3, smallBoard.getPlayerCol());
     	smallBoard.movePlayer(GameBoard.Direction.DOWN);
         assertEquals(2, smallBoard.getPlayerRow());
         assertEquals(3, smallBoard.getPlayerCol());
