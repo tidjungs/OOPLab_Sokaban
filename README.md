@@ -14,22 +14,27 @@ Play
 javac Main.java
 java Main
 ```
-
+or
+```
+make play
+```
 Test
 ```
 javac -cp .:junit-4.12.jar GameboardTest.java
 java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore GameBoardTest
 ```
-Another way to run Test
+Test Shortcut
+- test all
+```
+make test-all
+```
 - test set board
 ```
-javac -cp .:junit-4.12.jar GameboardTest.java
-npm run test
+make test
 ```
 - test moving
 ```
-javac -cp .:junit-4.12.jar GameboardMovementTest.java
-npm run test-move
+make test-moving
 ```
 
 download the current `junit-4.XX.jar` from JUnit's [release page](https://github.com/junit-team/junit/releases) and [Hamcrest](http://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar)
